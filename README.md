@@ -76,7 +76,7 @@ The task is episodic, and in order to solve the environment, your agent must get
 ## Tips
 
 - For more details of algolithm description, hyperparameters settings and results, see [Report.md](https://github.com/4kasha/Navigation_DQN/Report.md).
-- For the examples of training results, see [Navigation_Results_Example.ipynb](https://github.com/4kasha/Navigation_DQN/Navigation_Results_Example.ipynb).
-- After training you can test the agent with saved weights in the folder `weights`, see [Navigation_Watch_Agent.ipynb](https://github.com/4kasha/Navigation_DQN/Navigation_Watch_Agent.ipynb). 
+- For the examples of training results, see [Navigation_Results_Example.ipynb](Navigation_Results_Example.ipynb).
+- After training you can test the agent with saved weights in the folder `weights`, see [Navigation_Watch_Agent.ipynb](Navigation_Watch_Agent.ipynb). 
 - This project is a part of Udacity's [Deep Reinforcement Nanodegree program](https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893).
 
