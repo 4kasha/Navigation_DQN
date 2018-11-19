@@ -88,14 +88,13 @@ The following table shows the number of episodes needed to solve the environment
 |# of episodes to solve|439|417|396|N/A|
 
 
-The learning process for each episode using DQN algorithm is illustrated in the left figure below. The magenta line denotes the average score over 100 successive episodes.  
-The right figure below shows the average scores over 100 successive episodes via DQN, DDQN and Dueling DQN algorithm.
+The learning process for each episode using DQN algorithm is illustrated in the top figure below. The magenta line denotes the average score over 100 successive episodes.  
+The bottom figure below shows the average scores over 100 successive episodes via DQN, DDQN and Dueling DQN algorithm.
 
 <img src="./media/DQN.png" width="420" label="rewards">
 <img src="./media/summary.png" width="420" label="compare">
 
 The following video is a behaviour of trained agent with DQN.
-(cf. [Navigation_Watch_Agent.ipynb](Navigation_Watch_Agent.ipynb) )
 
 ![Trained Agent][image1]
 
