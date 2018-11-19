@@ -23,15 +23,13 @@ Through all algorithms above, we use a neural network as the function approximat
 
 - **Fixed Q-Targets** : 
     - The purpose of learning is to optimize the following loss functions at iteration i,  
-        <img src="https://latex.codecogs.com/gif.latex?L_i(\theta_i)=\mathbb{E}_{(s,a,r,s^{'})\sim&space;U(D)}[\left(y_{i}^{target}-Q(s,a;\theta_i)\right)^2]"/>  
-        where <img src="https://latex.codecogs.com/gif.latex?\theta_i"/> is Q-network parameters.
+        <img src="https://latex.codecogs.com/gif.latex?L_i(\theta_i)=\mathbb{E}_{(s,a,r,s^{'})\sim&space;U(D)}[\left(y_{i}^{target}-Q(s,a;\theta_i)\right)^2]"/> , where <img src="https://latex.codecogs.com/gif.latex?\theta_i"/> is Q-network parameters.
 
     - For DQN algorithm,  
-        <img src="https://latex.codecogs.com/gif.latex?y_i^{target}=r&plus;\gamma\underset{a^{'}}{\max}Q(s^{'},a^{'};\theta_i^{-})"/>  
-        where <img src="https://latex.codecogs.com/gif.latex?\gamma"/> is the discount factor.
+        <img src="https://latex.codecogs.com/gif.latex?y_i^{target}=r&plus;\gamma\underset{a^{'}}{\max}Q(s^{'},a^{'};\theta_i^{-})"/>  where <img src="https://latex.codecogs.com/gif.latex?\gamma"/> is the discount factor.
     
     - For Double DQN algorithm,  
-        <img src="https://latex.codecogs.com/gif.latex?y_i^{target}=r&plus;\gamma&space;Q(s^{'},\underset{a^{'}}{\text{argmax}}Q(s^{'},a^{'};\theta_i);\theta_i^{-})"/>.  
+        <img src="https://latex.codecogs.com/gif.latex?y_i^{target}=r&plus;\gamma&space;Q(s^{'},\underset{a^{'}}{\text{argmax}}Q(s^{'},a^{'};\theta_i);\theta_i^{-})"/>  
         This target moderates the overestimation of DQN algorithm especially at early stages of learning.
     
     - The target network parameters <img src="https://latex.codecogs.com/gif.latex?\theta_i^{-}"/> are only updated with <img src="https://latex.codecogs.com/gif.latex?\theta_i"/> every _UPDATE_EVERY_ steps via soft update, θ_target = _TAU_*θ + (1 - _TAU_)*θ_target. 
@@ -75,7 +73,7 @@ The corresponding parameters are as follow.
     - The remain part of network estimating the state-value and advantage function has a hidden layer with 64 nodes respectively.
     - Relu activation function and dropout (drop_p=0.3) for each layer.
     - As pointed out in the [original paper][ref3], the mean of the advantage function is subtracted at the output layer (see below fig).
-    <img src="./media/DuelingNet.png" width="420" label="rewards">
+    <img src="./media/DuelingNet.png" width="520" label="rewards">
 
 ## Plot of Rewards
 
