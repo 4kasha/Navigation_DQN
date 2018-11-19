@@ -14,7 +14,7 @@
 - Dueling DQN
 - Dueling DDQN
 
-Through all algorithms above, we use a neural network as the function approximater of satate-action value function Q(s,a). This generally causes the instability of learning process and to prevent this we implement two basic features, **Experience replay** and **Fixed Q-Targets**. 
+Through all algorithms above, we use a neural network as the function approximator of action value function Q(s,a). This generally causes the instability of learning process and to prevent this we implement two basic features, **Experience replay** and **Fixed Q-Targets**. 
 
 - **Experience replay** : 
     - During interacting with the environment, we store experiences, <img src="https://latex.codecogs.com/gif.latex?e_t=(S_t,A_t,r_t,S_{t&plus;1})"/>, at each time step t as a memory in a dataset (replay buffer) <img src="https://latex.codecogs.com/gif.latex?D_t=(e_1,e_2,\cdots,e_t)"/> whose size is _BUFFER_SIZE_. 
@@ -77,7 +77,7 @@ The corresponding parameters are as follow.
 
 ## Plot of Rewards
 
-A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.  Thus, the goal of the agent is to collect as many yellow bananas as possible while avoiding blue bananas.   
+A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.  Thus, the goal of the agent is to collect as many yellow bananas as possible while avoiding blue bananas. 
 The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.
 
 The following table shows the number of episodes needed to solve the environment for each algorithm. In the case of Dueling DDQN, the agent with the hyperparameters setting above did not achieve the score goal despite increase of the episode number. (see. [Navigation_Results_Example.ipynb](Navigation_Results_Example.ipynb))
@@ -88,7 +88,7 @@ The following table shows the number of episodes needed to solve the environment
 |# of episodes to solve|439|417|396|N/A|
 
 
-The learning process for each episode using DQN algorithm is illustrated in the top figure below. The magenta line denotes the average score over 100 successive episodes.  
+The learning process for each episode using DQN algorithm is illustrated in the top figure below. The magenta line denotes the average score over 100 successive episodes.
 The bottom figure below shows the average scores over 100 successive episodes via DQN, DDQN and Dueling DQN algorithm.
 
 <img src="./media/DQN.png" width="420" label="rewards">
