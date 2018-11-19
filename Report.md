@@ -16,23 +16,24 @@
 
 Through all algorithms above, we use a neural network as the function approximater of satate-action value function Q(s,a). This generally causes the instability of learning process and to prevent this we implement two basic features, **Experience replay** and **Fixed Q-Targets**. 
 
-- Experience replay : 
-    - During interacting with the environment, we store experiences, 
-    <img src="https://latex.codecogs.com/gif.latex?e_t=(S_t,A_t,r_t,S_{t&plus;1})"/>
-    , at each time step t as a memory in a dataset (replay buffer) 
-    <img src="https://latex.codecogs.com/gif.latex?D_t=(e_1,e_2,\cdots,e_t)"/> whose size is _BUFFER_SIZE_. 
+- **Experience replay** : 
+    - During interacting with the environment, we store experiences, <img src="https://latex.codecogs.com/gif.latex?e_t=(S_t,A_t,r_t,S_{t&plus;1})"/>, at each time step t as a memory in a dataset (replay buffer) <img src="https://latex.codecogs.com/gif.latex?D_t=(e_1,e_2,\cdots,e_t)"/> whose size is _BUFFER_SIZE_. 
+
     - In the learning phase, minibatches of experiences, U(D), are uniformly sampled at random from the replay buffer for updating the Q-network (this random sampling reduces harmful correlations between time sequential experiences).
 
-- Fixed Q-Targets : 
+- **Fixed Q-Targets** : 
     - The purpose of learning is to optimize the following loss functions at iteration i,  
     <img src="https://latex.codecogs.com/gif.latex?L_i(\theta_i)=\mathbb{E}_{(s,a,r,s^{'})\sim&space;U(D)}[\left(y_{i}^{target}-Q(s,a;\theta_i)\right)^2]"/>  
     where <img src="https://latex.codecogs.com/gif.latex?\theta_i"/> is Q-network parameters.
+
     - For DQN algorithm,  
     <img src="https://latex.codecogs.com/gif.latex?y_i^{target}=r&plus;\gamma\underset{a^{'}}{\max}Q(s^{'},a^{'};\theta_i^{-})"/>  
     where <img src="https://latex.codecogs.com/gif.latex?\gamma"/> is the discount factor.
+    
     - For Double DQN algorithm,  
     <img src="https://latex.codecogs.com/gif.latex?y_i^{target}=r&plus;\gamma&space;Q(s^{'},\underset{a^{'}}{\text{argmax}}Q(s^{'},a^{'};\theta_i);\theta_i^{-})"/>  
     This target moderates the overestimation of DQN algorithm especially at early stages of learning.
+    
     - The target network parameters <img src="https://latex.codecogs.com/gif.latex?\theta_i^{-}"/> are only updated with <img src="https://latex.codecogs.com/gif.latex?\theta_i"/> every _UPDATE_EVERY_ steps via soft update, θ_target = _TAU_*θ + (1 - _TAU_)*θ_target. 
 
 ## Hyperparameters
@@ -81,7 +82,7 @@ The corresponding parameters are as follow.
 A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.  Thus, the goal of the agent is to collect as many yellow bananas as possible while avoiding blue bananas.   
 The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.
 
-The following table shows the number of episodes needed to solve the environment for each algorithm. In the case of Dueling DDQN, the agent with the hyperparameters setting above did not achieve the score goal despite increase of the episode number. (see. [Navigation_Results_Example.ipynb](https://github.com/4kasha/Navigation_DQN/Navigation_Results_Example.ipynb))
+The following table shows the number of episodes needed to solve the environment for each algorithm. In the case of Dueling DDQN, the agent with the hyperparameters setting above did not achieve the score goal despite increase of the episode number. (see. [Navigation_Results_Example.ipynb](Navigation_Results_Example.ipynb))
 
 
 ||DQN|DDQN|Dueling DQN|Dueling DDQN|
@@ -96,7 +97,7 @@ The right figure below shows the average scores over 100 successive episodes via
 <img src="./media/summary.png" width="420" label="compare">
 
 The following video is a behaviour of trained agent with DQN.
-(cf. [Navigation_Watch_Agent.ipynb](https://github.com/4kasha/Navigation_DQN/Navigation_Watch_Agent.ipynb))
+(cf. [Navigation_Watch_Agent.ipynb](Navigation_Watch_Agent.ipynb))
 
 ![Trained Agent][image1]
 
@@ -108,7 +109,7 @@ The following video is a behaviour of trained agent with DQN.
 - Distributional DQN
 - Learning from raw Pixels
 
- Although the performance with Dueling DQN is slightly higher than the other algorithms, we encountered a situation like the following video. (you can make the same things with saved weights, `weights/weights_Dueling_DQN.pth` in [Navigation_Watch_Agent.ipynb](https://github.com/4kasha/Navigation_DQN/Navigation_Watch_Agent.ipynb))
+ Although the performance with Dueling DQN is slightly higher than the other algorithms, we encountered a situation like the following video. (you can make the same things with saved weights, `weights/weights_Dueling_DQN.pth` in [Navigation_Watch_Agent.ipynb](Navigation_Watch_Agent.ipynb))
 
 As you can see the video below, after collecting several yellow bananas the agent was surrounded by a wall and blue bananas, then lost the sight of targets and started walking around in circles. This is interesting and the action based on rewards. In other words, the agent judged that the action staying here is more valuable than taking the action that could potentially collect blue bananas. This may happens caused by low dimensionality of the state space, therefore algorithm via learning from raw pixels could resolve this problem.
 
