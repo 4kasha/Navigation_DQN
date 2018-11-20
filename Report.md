@@ -69,7 +69,7 @@ The corresponding parameters are as follow.
 
 2. Dueling Network
     - Two streams
-    - The common part of network is consists of 2 hidden layers with the size of 512 and 196.
+    - The common part of network consists of 2 hidden layers with the size of 512 and 196.
     - The remain part of network estimating the state-value and advantage function has a hidden layer with 64 nodes respectively.
     - Relu activation function and dropout (drop_p=0.3) for each layer.
     - As pointed out in the [original paper][ref3], the mean of the advantage function is subtracted at the output layer (see below fig).
